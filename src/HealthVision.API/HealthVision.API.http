@@ -1,0 +1,6 @@
+@HealthVision.API_HostAddress = http://localhost:5072
+
+GET {{HealthVision.API_HostAddress}}/weatherforecast/
+Accept: application/json
+
+###

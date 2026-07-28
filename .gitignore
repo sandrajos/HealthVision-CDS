@@ -1,0 +1,42 @@
+# Visual Studio cache and build artifacts
+.vs/
+bin/
+obj/
+*.user
+*.suo
+*.cache
+*.log
+*.db
+
+# NuGet packages
+*.nupkg
+packages/
+*.snupkg
+
+# Build results
+*.dll
+*.exe
+*.pdb
+*.mdb
+
+# Temporary files
+*.tmp
+*.bak
+*.old
+*.swp
+
+# Docker
+*.pid
+*.tar
+*.env
+docker-compose.override.yml
+
+# OS-specific
+Thumbs.db
+ehthumbs.db
+Desktop.ini
+.DS_Store
+
+# IDE-specific
+.idea/
+.vscode/

@@ -1,0 +1,11 @@
+<Solution>
+  <Folder Name="/src/">
+    <Project Path="src/HealthVision.API/HealthVision.API.csproj" />
+    <Project Path="src/HealthVision.Application/HealthVision.Application.csproj" />
+    <Project Path="src/HealthVision.Domain/HealthVision.Domain.csproj" />
+    <Project Path="src/HealthVision.Infrastructure/HealthVision.Infrastructure.csproj" />
+  </Folder>
+  <Folder Name="/tests/">
+    <Project Path="tests/HealthVision.Tests/HealthVision.Tests.csproj" />
+  </Folder>
+</Solution>
