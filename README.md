@@ -108,7 +108,15 @@ A dedicated xUnit test project is included under:
 
 tests/HealthVision.Tests
 
-The current test suite is an initial scaffold containing a placeholder test. Comprehensive unit and integration testing is planned for future development.
+The project includes an xUnit test project covering the patient API controller.
+
+Current tests include:
+
+- Retrieving the patient list successfully
+- Returning `404 Not Found` for a missing patient
+- Creating and persisting a patient successfully
+
+Tests use **EF Core InMemory** for isolated test execution and are automatically executed by the **GitHub Actions CI pipeline**.
 
 ## Current Limitations
 
