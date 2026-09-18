@@ -1,5 +1,7 @@
 # HealthVision-CDS
 
+[![.NET CI](https://github.com/sandrajos/HealthVision-CDS/actions/workflows/dotnet-ci.yml/badge.svg)](https://github.com/sandrajos/HealthVision-CDS/actions/workflows/dotnet-ci.yml)
+
 ## Educational Healthcare Workflow API
 
 HealthVision-CDS is an educational backend project built with ASP.NET Core and C# to explore healthcare-oriented data workflows, REST API design, layered architecture, and persistence with Entity Framework Core.
@@ -133,7 +135,7 @@ Potential improvements include:
 - Add authentication and authorization
 - Improve exception handling
 - Add structured logging and monitoring
-- Add GitHub Actions CI/CD
+- Extend GitHub Actions CI/CD with deployment automation
 - Containerize the API with Docker
 - Add health checks
 - Add API versioning
