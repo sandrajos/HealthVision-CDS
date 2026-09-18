@@ -50,6 +50,9 @@ Available endpoints:
 | .NET | Application platform |
 | xUnit | Test project |
 | Git | Version control |
+| GitHub Actions | CI/CD automation |
+| Docker | Containerization and image validation |
+| Health Checks | Application and database health monitoring |
 
 ## Project Structure
 
@@ -78,6 +81,9 @@ This project explores:
 - Swagger / OpenAPI
 - Configuration management
 - .NET testing structure
+- Docker containerization
+- GitHub Actions CI/CD
+- Application and database health monitoring
 
 ## Running the Project
 
@@ -118,6 +124,8 @@ Current tests include:
 
 Tests use **EF Core InMemory** for isolated test execution and are automatically executed by the **GitHub Actions CI pipeline**.
 
+The API also exposes a `/health` endpoint with an EF Core database health check. The CI pipeline additionally validates the Docker image build.
+
 ## Current Limitations
 
 This is an educational portfolio project and is not a production healthcare system.
@@ -153,7 +161,7 @@ Potential improvements include:
 
 HealthVision-CDS demonstrates backend development with C#, ASP.NET Core, REST APIs, Entity Framework Core, SQL Server, and layered application architecture.
 
-The project provides a foundation for extending the application with testing, Docker, CI/CD, cloud deployment, and infrastructure automation.
+The project demonstrates backend development, automated testing, Docker containerization, CI/CD validation, health monitoring, and a foundation for future cloud deployment and infrastructure automation.
 
 ---
 
