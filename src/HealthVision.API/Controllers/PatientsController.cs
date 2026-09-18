@@ -1,6 +1,5 @@
 using Microsoft.AspNetCore.Mvc;
 using HealthVision.Infrastructure.Data;
-using HealthVision.Domain.Entities;
 using Microsoft.EntityFrameworkCore;
 
 namespace HealthVision.API.Controllers
@@ -26,8 +25,8 @@ namespace HealthVision.API.Controllers
         }
 
         // GET: api/patients/{id}
-        [HttpGet("{id:guid}")]
-        public async Task<IActionResult> GetPatient(Guid id)
+        [HttpGet("{id}")]
+        public async Task<IActionResult> GetPatient(int id)
         {
             var patient = await _context.Patients.FindAsync(id);
 
@@ -54,9 +53,9 @@ namespace HealthVision.API.Controllers
         }
 
         // PUT: api/patients/{id}
-        [HttpPut("{id:guid}")]
+        [HttpPut("{id}")]
         public async Task<IActionResult> UpdatePatient(
-            Guid id,
+            int id,
             [FromBody] Patient updated)
         {
             var patient = await _context.Patients.FindAsync(id);
@@ -66,9 +65,9 @@ namespace HealthVision.API.Controllers
                 return NotFound();
             }
 
-            patient.PatientNumber = updated.PatientNumber;
-            patient.Name = updated.Name;
-            patient.Age = updated.Age;
+            patient.FirstName = updated.FirstName;
+            patient.LastName = updated.LastName;
+            patient.DateOfBirth = updated.DateOfBirth;
             patient.Gender = updated.Gender;
 
             await _context.SaveChangesAsync();
@@ -77,8 +76,8 @@ namespace HealthVision.API.Controllers
         }
 
         // DELETE: api/patients/{id}
-        [HttpDelete("{id:guid}")]
-        public async Task<IActionResult> DeletePatient(Guid id)
+        [HttpDelete("{id}")]
+        public async Task<IActionResult> DeletePatient(int id)
         {
             var patient = await _context.Patients.FindAsync(id);
 

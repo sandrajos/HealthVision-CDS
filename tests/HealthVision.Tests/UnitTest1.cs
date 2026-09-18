@@ -1,5 +1,4 @@
 ﻿using HealthVision.API.Controllers;
-using HealthVision.Domain.Entities;
 using HealthVision.Infrastructure.Data;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.EntityFrameworkCore;
@@ -24,10 +23,10 @@ public class PatientsControllerTests
 
         context.Patients.Add(new Patient
         {
-            Id = Guid.NewGuid(),
-            PatientNumber = "P001",
-            Name = "John Doe",
-            Age = 40,
+            Id = 1,
+            FirstName = "John",
+            LastName = "Doe",
+            DateOfBirth = new DateTime(1986, 5, 10),
             Gender = "Male"
         });
 
@@ -50,7 +49,7 @@ public class PatientsControllerTests
 
         var controller = new PatientsController(context);
 
-        var result = await controller.GetPatient(Guid.NewGuid());
+        var result = await controller.GetPatient(999);
 
         Assert.IsType<NotFoundResult>(result);
     }
@@ -64,10 +63,10 @@ public class PatientsControllerTests
 
         var patient = new Patient
         {
-            Id = Guid.NewGuid(),
-            PatientNumber = "P002",
-            Name = "Jane Doe",
-            Age = 35,
+            Id = 1,
+            FirstName = "Jane",
+            LastName = "Doe",
+            DateOfBirth = new DateTime(1991, 8, 15),
             Gender = "Female"
         };
 
@@ -75,12 +74,16 @@ public class PatientsControllerTests
 
         var createdResult = Assert.IsType<CreatedAtActionResult>(result);
 
-        Assert.Equal(nameof(PatientsController.GetPatient), createdResult.ActionName);
+        Assert.Equal(
+            nameof(PatientsController.GetPatient),
+            createdResult.ActionName);
+
         Assert.Equal(patient, createdResult.Value);
 
         var savedPatient = await context.Patients.FindAsync(patient.Id);
 
         Assert.NotNull(savedPatient);
-        Assert.Equal("Jane Doe", savedPatient.Name);
+        Assert.Equal("Jane", savedPatient.FirstName);
+        Assert.Equal("Doe", savedPatient.LastName);
     }
 }
