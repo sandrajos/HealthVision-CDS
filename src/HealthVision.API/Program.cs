@@ -7,7 +7,8 @@ using Microsoft.Extensions.Hosting;
 var builder = WebApplication.CreateBuilder(args);
 
 // Add health checks
-builder.Services.AddHealthChecks();
+builder.Services.AddHealthChecks()
+    .AddDbContextCheck<HealthVisionDbContext>();
 
 // Add controllers
 builder.Services.AddControllers();
