@@ -6,6 +6,9 @@ using Microsoft.Extensions.Hosting;
 
 var builder = WebApplication.CreateBuilder(args);
 
+// Add health checks
+builder.Services.AddHealthChecks();
+
 // Add controllers
 builder.Services.AddControllers();
 
@@ -33,6 +36,9 @@ if (app.Environment.IsDevelopment())
 }
 
 app.UseHttpsRedirection();
+
+// Map health check endpoint
+app.MapHealthChecks("/health");
 
 // Map controllers
 app.MapControllers();
